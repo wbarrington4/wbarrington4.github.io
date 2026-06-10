@@ -1,10 +1,545 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barrington Fleet & Auto LLC</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #111;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    :root {
+      --red: #d62828;
+      --blue: #003049;
+      --light-blue: #0077b6;
+      --gray: #f4f4f4;
+      --dark: #111111;
+    }
+
+    header {
+      background: white;
+      border-bottom: 4px solid var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .top-header {
+      max-width: 1200px;
+      margin: auto;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .call-box {
+      text-align: right;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    .call-box a {
+      color: var(--red);
+      text-decoration: none;
+      font-size: 25px;
+    }
+
+    nav {
+      background: var(--blue);
+      text-align: center;
+      padding: 13px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 18px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 590px;
+      background:
+        linear-gradient(rgba(0, 48, 73, 0.85), rgba(0, 48, 73, 0.85)),
+        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.1;
+      max-width: 720px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ffb703;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--blue);
+    }
+
+    section {
+      padding: 75px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: #555;
+      max-width: 700px;
+      margin: 10px auto 0;
+    }
+
+    .services {
+      background: var(--gray);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-top: 6px solid var(--red);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .about-box {
+      background: var(--blue);
+      color: white;
+      padding: 40px;
+      border-radius: 14px;
+      border-bottom: 8px solid var(--red);
+    }
+
+    .about-box h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #ffb703;
+    }
+
+    .stats {
+      background: var(--blue);
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      gap: 25px;
+    }
+
+    .stat h3 {
+      font-size: 50px;
+      color: #ffb703;
+    }
+
+    .reviews {
+      background: #fff7ed;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .review {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .stars {
+      color: #ffb703;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      background: var(--gray);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-card h3 {
+      color: var(--blue);
+      font-size: 28px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .service-areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      margin-top: 15px;
+    }
+
+    .service-areas p::before {
+      content: "📍 ";
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+    }
+
+    footer span {
+      color: #ffb703;
+    }
+
+    @media (max-width: 900px) {
+      .card-grid,
+      .review-grid,
+      .stats-grid,
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      .top-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .call-box {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Welcome to my website</h1>
-  <p>This is my first website on GitHub.</p>
+
+  <header>
+    <div class="top-header">
+      <div class="logo">
+        Barrington <span>Fleet</span><br />
+        & Auto
+      </div>
+
+      <div class="call-box">
+        Call or Text Today<br />
+        <a href="tel:2399227432">(239) 922-7432</a>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Mobile Mechanic Service You Can <span>Trust</span></h1>
+      <p>
+        Barrington Fleet & Auto LLC provides reliable auto repair and fleet maintenance
+        in Lehigh Acres, Fort Myers, and nearby areas.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-red" href="tel:2399227432">Call Now</a>
+        <a class="btn btn-white" href="#services">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>
+          We come to you, so you can save time and reduce vehicle downtime.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="icon">🔧</div>
+          <h3>Auto Repair</h3>
+          <p>General automotive repairs for personal vehicles and work vehicles.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🚚</div>
+          <h3>Fleet Maintenance</h3>
+          <p>Dependable maintenance for commercial fleets to help keep vehicles running.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Diagnostics</h3>
+          <p>On-site diagnostics to help find problems quickly and correctly.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛑</div>
+          <h3>Brake Service</h3>
+          <p>Brake checks, repair, and service to help keep your vehicle safe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div>
+        <h2>Family-Owned Mobile Mechanic</h2>
+        <p>
+          Barrington Fleet & Auto is a family-owned mechanic service based in the
+          Lehigh Acres area.
+        </p>
+        <p>
+          We focus on honest service, quality work, and dependable repairs.
+          Our goal is to make auto repair easier by coming to you.
+        </p>
+        <p>
+          Whether you need repair work for your personal vehicle or maintenance
+          for your fleet, we are ready to help.
+        </p>
+
+        <a class="btn btn-red" href="tel:2399227432">Schedule Service</a>
+      </div>
+
+      <div class="about-box">
+        <h3>Why Choose Us?</h3>
+        <p>✔ Mobile mechanic service</p>
+        <p>✔ Personal and fleet vehicles</p>
+        <p>✔ Honest workmanship</p>
+        <p>✔ Local and family-owned</p>
+        <p>✔ Serving Lehigh Acres and nearby areas</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat">
+        <h3>5.0</h3>
+        <p>Google Rating</p>
+      </div>
+
+      <div class="stat">
+        <h3>35+</h3>
+        <p>Google Reviews</p>
+      </div>
+
+      <div class="stat">
+        <h3>100%</h3>
+        <p>Committed to Quality</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2>What Customers Are Saying</h2>
+        <p>Real service, honest repairs, and work you can depend on.</p>
+      </div>
+
+      <div class="review-grid">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            Great local mechanic service. Reliable, professional, and easy to work with.
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            They helped keep our vehicle running and saved us time by coming to us.
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            Honest service and dependable repair work. Highly recommend.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <h3>Contact Us</h3>
+        <p><strong>Business:</strong> Barrington Fleet & Auto LLC</p>
+        <p><strong>Phone:</strong> <a href="tel:2399227432">(239) 922-7432</a></p>
+        <p><strong>Area:</strong> Lehigh Acres, FL</p>
+        <p><strong>Service:</strong> Mobile mechanic and fleet maintenance</p>
+
+        <br />
+        <a class="btn btn-red" href="tel:2399227432">Call Now</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Areas Served</h3>
+        <p>We serve Lehigh Acres and nearby areas.</p>
+
+        <div class="service-areas">
+          <p>Lehigh Acres</p>
+          <p>Fort Myers</p>
+          <p>Alva</p>
+          <p>Estero</p>
+          <p>Cape Coral</p>
+          <p>Bonita Springs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright © 2026 <span>Barrington Fleet & Auto LLC</span> - All Rights Reserved</p>
+  </footer>
+
 </body>
 </html>
