@@ -12,6 +12,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       color: #111;
@@ -30,15 +34,12 @@
     header {
       background: white;
       border-bottom: 4px solid var(--red);
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     .top-header {
       max-width: 1200px;
       margin: auto;
-      padding: 18px 20px;
+      padding: 25px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -46,7 +47,7 @@
     }
 
     .logo-img {
-      max-width: 260px;
+      max-width: 250px;
       height: auto;
     }
 
@@ -99,7 +100,7 @@
     .hero h1 {
       font-size: 58px;
       line-height: 1.1;
-      max-width: 720px;
+      max-width: 760px;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
@@ -110,7 +111,7 @@
 
     .hero p {
       font-size: 20px;
-      max-width: 650px;
+      max-width: 680px;
       margin-bottom: 30px;
     }
 
@@ -127,6 +128,8 @@
       text-decoration: none;
       font-weight: bold;
       text-transform: uppercase;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-red {
@@ -227,6 +230,11 @@
       color: var(--yellow);
     }
 
+    .about-box p {
+      color: white;
+      margin-bottom: 10px;
+    }
+
     .stats {
       background: var(--blue);
       color: white;
@@ -277,7 +285,13 @@
       font-size: 22px;
       color: var(--blue);
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+    }
+
+    .review-date {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 12px;
     }
 
     .review-text {
@@ -353,6 +367,11 @@
       font-size: 28px;
       margin-bottom: 15px;
       text-transform: uppercase;
+    }
+
+    .contact-card a {
+      color: var(--red);
+      font-weight: bold;
     }
 
     .service-areas {
@@ -437,10 +456,11 @@
 
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Mobile Mechanic Service You Can <span>Trust</span></h1>
+      <h1>Auto Repair Service You Can <span>Trust</span></h1>
       <p>
-        Barrington Fleet & Auto LLC provides reliable auto repair and fleet maintenance
-        in Lehigh Acres, Fort Myers, and nearby areas.
+        Barrington Fleet & Auto LLC provides reliable auto repair and fleet
+        maintenance for personal vehicles and commercial fleets in Lehigh Acres,
+        Fort Myers, and nearby areas.
       </p>
 
       <div class="buttons">
@@ -454,7 +474,9 @@
     <div class="container">
       <div class="section-title">
         <h2>Our Services</h2>
-        <p>We come to you, so you can save time and reduce vehicle downtime.</p>
+        <p>
+          We provide dependable repairs and maintenance to help keep your vehicle or fleet running.
+        </p>
       </div>
 
       <div class="card-grid">
@@ -473,7 +495,7 @@
         <div class="card">
           <div class="icon">🛠️</div>
           <h3>Diagnostics</h3>
-          <p>On-site diagnostics to help find problems quickly and correctly.</p>
+          <p>Diagnostics to help find vehicle problems quickly and correctly.</p>
         </div>
 
         <div class="card">
@@ -488,14 +510,14 @@
   <section id="about">
     <div class="container about">
       <div>
-        <h2>Family-Owned Mobile Mechanic</h2>
+        <h2>Family-Owned Auto Repair Shop</h2>
         <p>
-          Barrington Fleet & Auto is a family-owned mechanic service based in the
+          Barrington Fleet & Auto is a family-owned auto repair shop based in the
           Lehigh Acres area.
         </p>
         <p>
           We focus on honest service, quality work, and dependable repairs.
-          Our goal is to make auto repair easier by coming to you.
+          Our goal is to provide honest repairs, dependable service, and quality work.
         </p>
         <p>
           Whether you need repair work for your personal vehicle or maintenance
@@ -507,7 +529,7 @@
 
       <div class="about-box">
         <h3>Why Choose Us?</h3>
-        <p>✔ Mobile mechanic service</p>
+        <p>✔ Local auto repair shop</p>
         <p>✔ Personal and fleet vehicles</p>
         <p>✔ Honest workmanship</p>
         <p>✔ Local and family-owned</p>
@@ -539,7 +561,7 @@
     <div class="container">
       <div class="section-title">
         <h2>What Customers Are Saying</h2>
-        <p>Click through some of our customer reviews.</p>
+        <p>Real reviews from customers who trust Barrington Fleet & Auto.</p>
       </div>
 
       <div class="review-slider">
@@ -547,25 +569,81 @@
 
         <div class="review-slide active">
           <div class="stars">★★★★★</div>
-          <div class="review-name">Customer Review</div>
+          <div class="review-name">Mary Hart</div>
+          <div class="review-date">5 days ago</div>
           <p class="review-text">
-            Great local mechanic service. Reliable, professional, and easy to work with.
+            My AC was blowing hot air. Billy did a thorough check, showed me what was wrong,
+            and installed a new compressor.
           </p>
         </div>
 
         <div class="review-slide">
           <div class="stars">★★★★★</div>
-          <div class="review-name">Customer Review</div>
+          <div class="review-name">Krystal Siriphanthong</div>
+          <div class="review-date">2 weeks ago</div>
           <p class="review-text">
-            They helped keep our vehicle running and saved us time by coming to us.
+            Billy is awesome! He’s quick to find the issue and honest. Super professional,
+            definitely my new mechanic!
           </p>
         </div>
 
         <div class="review-slide">
           <div class="stars">★★★★★</div>
-          <div class="review-name">Customer Review</div>
+          <div class="review-name">Doug Currin</div>
+          <div class="review-date">2 weeks ago</div>
           <p class="review-text">
-            Honest service and dependable repair work. Highly recommend.
+            Fast and friendly service with fair prices. I highly recommend Billy to anyone
+            looking for an honest mechanic.
+          </p>
+        </div>
+
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Terry Tates</div>
+          <div class="review-date">1 month ago</div>
+          <p class="review-text">
+            10/10 after going to Billy you’ll never take your vehicle anywhere else.
+            He’s reliable, fair, honest, and really knows his stuff.
+          </p>
+        </div>
+
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Devin Schmidtke</div>
+          <div class="review-date">4 months ago</div>
+          <p class="review-text">
+            10/10 recommend. Billy is the best mechanic I have ever used and always
+            takes care of my vehicle problems quickly and efficiently.
+          </p>
+        </div>
+
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Gary Shuler</div>
+          <div class="review-date">4 months ago</div>
+          <p class="review-text">
+            Highly recommend Billy! His knowledge, experience, and honesty is hard to find
+            in the automotive repair business.
+          </p>
+        </div>
+
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Adolfo Martin</div>
+          <div class="review-date">4 months ago</div>
+          <p class="review-text">
+            Amazing service! He gets right to the point and gets issues fixed in a timely manner.
+            Very knowledgeable.
+          </p>
+        </div>
+
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Stephanie Orel</div>
+          <div class="review-date">4 months ago</div>
+          <p class="review-text">
+            Reliable, honest, super affordable, fast, and never a problem.
+            He’s the only person I will ever trust to work on my car.
           </p>
         </div>
 
@@ -575,6 +653,11 @@
           <span class="dot active" onclick="showReview(0)"></span>
           <span class="dot" onclick="showReview(1)"></span>
           <span class="dot" onclick="showReview(2)"></span>
+          <span class="dot" onclick="showReview(3)"></span>
+          <span class="dot" onclick="showReview(4)"></span>
+          <span class="dot" onclick="showReview(5)"></span>
+          <span class="dot" onclick="showReview(6)"></span>
+          <span class="dot" onclick="showReview(7)"></span>
         </div>
       </div>
     </div>
@@ -587,7 +670,7 @@
         <p><strong>Business:</strong> Barrington Fleet & Auto LLC</p>
         <p><strong>Phone:</strong> <a href="tel:2399227432">(239) 922-7432</a></p>
         <p><strong>Area:</strong> Lehigh Acres, FL</p>
-        <p><strong>Service:</strong> Mobile mechanic and fleet maintenance</p>
+        <p><strong>Service:</strong> Auto repair and fleet maintenance</p>
 
         <br />
         <a class="btn btn-red" href="tel:2399227432">Call Now</a>
@@ -641,6 +724,10 @@
 
       showReview(nextReview);
     }
+
+    setInterval(function() {
+      changeReview(1);
+    }, 5000);
   </script>
 
 </body>
