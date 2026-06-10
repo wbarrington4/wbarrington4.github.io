@@ -22,7 +22,7 @@
     :root {
       --red: #d62828;
       --blue: #003049;
-      --light-blue: #0077b6;
+      --yellow: #ffb703;
       --gray: #f4f4f4;
       --dark: #111111;
     }
@@ -38,23 +38,16 @@
     .top-header {
       max-width: 1200px;
       margin: auto;
-      padding: 22px 20px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    .logo {
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--blue);
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--red);
+    .logo-img {
+      max-width: 260px;
+      height: auto;
     }
 
     .call-box {
@@ -112,7 +105,7 @@
     }
 
     .hero h1 span {
-      color: #ffb703;
+      color: var(--yellow);
     }
 
     .hero p {
@@ -231,7 +224,7 @@
     .about-box h3 {
       font-size: 28px;
       margin-bottom: 15px;
-      color: #ffb703;
+      color: var(--yellow);
     }
 
     .stats {
@@ -248,30 +241,94 @@
 
     .stat h3 {
       font-size: 50px;
-      color: #ffb703;
+      color: var(--yellow);
     }
 
     .reviews {
       background: #fff7ed;
     }
 
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .review-slider {
+      max-width: 850px;
+      margin: auto;
+      position: relative;
+      background: white;
+      padding: 40px 70px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
-    .review {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    .review-slide {
+      display: none;
+    }
+
+    .review-slide.active {
+      display: block;
     }
 
     .stars {
-      color: #ffb703;
-      font-size: 24px;
-      margin-bottom: 8px;
+      color: var(--yellow);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .review-name {
+      font-size: 22px;
+      color: var(--blue);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      color: #444;
+      font-size: 17px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .review-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--red);
+      color: white;
+      border: none;
+      font-size: 28px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .review-btn:hover {
+      background: var(--blue);
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .next {
+      right: 15px;
+    }
+
+    .dots {
+      margin-top: 22px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: var(--red);
     }
 
     .contact {
@@ -317,12 +374,11 @@
     }
 
     footer span {
-      color: #ffb703;
+      color: var(--yellow);
     }
 
     @media (max-width: 900px) {
       .card-grid,
-      .review-grid,
       .stats-grid,
       .about,
       .contact-grid {
@@ -346,6 +402,14 @@
       .call-box {
         text-align: center;
       }
+
+      .logo-img {
+        max-width: 220px;
+      }
+
+      .review-slider {
+        padding: 35px 50px;
+      }
     }
   </style>
 </head>
@@ -354,10 +418,7 @@
 
   <header>
     <div class="top-header">
-      <div class="logo">
-        Barrington <span>Fleet</span><br />
-        & Auto
-      </div>
+      <img class="logo-img" src="logo.png" alt="Barrington Fleet & Auto Logo" />
 
       <div class="call-box">
         Call or Text Today<br />
@@ -393,9 +454,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Our Services</h2>
-        <p>
-          We come to you, so you can save time and reduce vehicle downtime.
-        </p>
+        <p>We come to you, so you can save time and reduce vehicle downtime.</p>
       </div>
 
       <div class="card-grid">
@@ -480,29 +539,42 @@
     <div class="container">
       <div class="section-title">
         <h2>What Customers Are Saying</h2>
-        <p>Real service, honest repairs, and work you can depend on.</p>
+        <p>Click through some of our customer reviews.</p>
       </div>
 
-      <div class="review-grid">
-        <div class="review">
+      <div class="review-slider">
+        <button class="review-btn prev" onclick="changeReview(-1)">‹</button>
+
+        <div class="review-slide active">
           <div class="stars">★★★★★</div>
-          <p>
+          <div class="review-name">Customer Review</div>
+          <p class="review-text">
             Great local mechanic service. Reliable, professional, and easy to work with.
           </p>
         </div>
 
-        <div class="review">
+        <div class="review-slide">
           <div class="stars">★★★★★</div>
-          <p>
+          <div class="review-name">Customer Review</div>
+          <p class="review-text">
             They helped keep our vehicle running and saved us time by coming to us.
           </p>
         </div>
 
-        <div class="review">
+        <div class="review-slide">
           <div class="stars">★★★★★</div>
-          <p>
+          <div class="review-name">Customer Review</div>
+          <p class="review-text">
             Honest service and dependable repair work. Highly recommend.
           </p>
+        </div>
+
+        <button class="review-btn next" onclick="changeReview(1)">›</button>
+
+        <div class="dots">
+          <span class="dot active" onclick="showReview(0)"></span>
+          <span class="dot" onclick="showReview(1)"></span>
+          <span class="dot" onclick="showReview(2)"></span>
         </div>
       </div>
     </div>
@@ -540,6 +612,36 @@
   <footer>
     <p>Copyright © 2026 <span>Barrington Fleet & Auto LLC</span> - All Rights Reserved</p>
   </footer>
+
+  <script>
+    let currentReview = 0;
+    const slides = document.querySelectorAll(".review-slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function showReview(index) {
+      slides[currentReview].classList.remove("active");
+      dots[currentReview].classList.remove("active");
+
+      currentReview = index;
+
+      slides[currentReview].classList.add("active");
+      dots[currentReview].classList.add("active");
+    }
+
+    function changeReview(direction) {
+      let nextReview = currentReview + direction;
+
+      if (nextReview < 0) {
+        nextReview = slides.length - 1;
+      }
+
+      if (nextReview >= slides.length) {
+        nextReview = 0;
+      }
+
+      showReview(nextReview);
+    }
+  </script>
 
 </body>
 </html>
